@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>What Is the Automation Orchestrator? :: Introduction to Automation Orchestrator for Red Hat Ansible Automation Platform</title>
+    <link rel="prev" href="../index.html">
+    <link rel="next" href="section1.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.12">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/tabs.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/collapsible.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/reading-time.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/audio-transcript.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Introduction to Automation Orchestrator for Red Hat Ansible Automation Platform</a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search the docs">
+        </div>
+      </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/automation_orchestrator/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="automation_orchestrator" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Introduction to Automation Orchestrator for Red Hat Ansible Automation Platform</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">What Is the Automation Orchestrator?</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="section1.html">Getting Started with automation orchestrator</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="section2.html">How the Automation Orchestrator Works</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="section3.html">How to Build a Workflow on the Canvas</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="tabs-demo.html">Tabbed code blocks</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Introduction to Automation Orchestrator for Red Hat Ansible Automation Platform</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Introduction to Automation Orchestrator for Red Hat Ansible Automation Platform</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Introduction to Automation Orchestrator for Red Hat Ansible Automation Platform</a></li>
+    <li><a href="index.html">What Is the Automation Orchestrator?</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">What Is the Automation Orchestrator?</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Let&#8217;s start with the most important question: what exactly is the automation orchestrator, and where does it fit in your automation story?
+Red Hat Ansible Automation Platform introduces the automation orchestrator as a visual, workflow-based orchestration platform that gives you a single place to design, execute, and govern multi-step automation workflows that coordinate across tools, teams, and systems by combining task-driven steps, event-driven triggers, AI-assisted decision making, and human approvals in one visual, auditable workflow.</p>
+</div>
+<div class="paragraph">
+<p>You already use AAP workflows to chain playbooks, job templates, and approvals across your systems. What Automation Orchestrator <strong>adds is advanced conditional logic and dynamic decision-making</strong> allowing your workflows to evaluate complex runtime data and intelligently route execution on the fly.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_why_was_the_automation_orchestrator_built"><a class="anchor" href="#_why_was_the_automation_orchestrator_built"></a>Why Was the Automation Orchestrator Built?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>As enterprise IT environments grow more complex, automation needs have evolved. Organizations are no longer just running scripts or playbooks in isolation. They are building automation that spans multiple teams, tools, domains and increasingly with AI assistance. The automation orchestrator was built because a new class of automation challenge emerged, one that requires coordinating across tools, teams, and modes of automation and that required a purpose-built solution.</p>
+</div>
+<div class="paragraph">
+<p>The automation orchestrator was purpose-built to meet this need. It brings together the following into a single, governed, visual workflow:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Existing Ansible automation</p>
+</li>
+<li>
+<p>External APIs and third-party tools</p>
+</li>
+<li>
+<p>Event-driven triggers</p>
+</li>
+<li>
+<p>Logic conditionals</p>
+</li>
+<li>
+<p>Human decision points</p>
+</li>
+<li>
+<p>AI-driven task agents</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_what_is_multimode_orchestration"><a class="anchor" href="#_what_is_multimode_orchestration"></a>What Is Multimode Orchestration?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>One of the most important concepts in the automation orchestrator is its role in multimode orchestration. This means not being locked into a single style of automation as it supports three distinct modes that can be combined into a single workflow.</p>
+</div>
+<div class="paragraph">
+<p><strong>Task-Driven</strong></p>
+</div>
+<div class="paragraph">
+<p>This is structured, deterministic automation. You define a sequence of steps like call an API,  run an Ansible job, evaluate a condition, wait for a result  and it executes them in order. This mode is ideal when you know exactly what needs to happen and in what order.</p>
+</div>
+<div class="paragraph">
+<p><strong>Event-Driven</strong></p>
+</div>
+<div class="paragraph">
+<p>Workflows do not always need to be triggered manually. With event-driven triggers, your workflows can start automatically in response to something happening: a webhook call, an alert, or an external system notification. The automation orchestrator includes a dedicated Event-Driven Ansible trigger type that, when connected to your EDA environment, allows workflows to start automatically in response to events processed by EDA in real time.</p>
+</div>
+<div class="paragraph">
+<p><strong>AI-Driven</strong></p>
+</div>
+<div class="paragraph">
+<p>This is where the automation orchestrator enters new territory. Using Task Agent steps powered by large language models (LLMs), your workflows can include AI-assisted reasoning analyzing logs, generating remediation plans, interpreting unstructured data, and making decisions all within a governed workflow context.</p>
+</div>
+<div class="paragraph">
+<p>AI-driven automation is not just a feature, it represents a new mode of automation that organizations are beginning to adopt. The automation orchestrator is designed to be the platform where human-defined automation, event-driven automation, and AI-assisted automation come together in a single, auditable workflow.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../index.html">Home</a></span>
+  <span class="next"><a href="section1.html">Getting Started with automation orchestrator</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script defer src="../../../_/js/vendor/tabs.js"></script>
+<script defer src="../../../_/js/vendor/reading-time.js"></script>
+<script src="../../../_/js/vendor/lunr.js"></script>
+<script src="../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../.." data-snippet-length="100" data-stylesheet="../../../_/css/search.css"></script>
+<script async src="../../../search-index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>End-to-End Walkthrough: RHEL CVE Remediation with AI Triage :: Introduction to Automation Orchestrator for Red Hat Ansible Automation Platform</title>
+    <meta name="generator" content="Antora 3.2.0-alpha.12">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/tabs.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/collapsible.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/reading-time.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/audio-transcript.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Introduction to Automation Orchestrator for Red Hat Ansible Automation Platform</a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search the docs">
+        </div>
+      </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/automation_orchestrator/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="automation_orchestrator" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Introduction to Automation Orchestrator for Red Hat Ansible Automation Platform</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">What Is the Automation Orchestrator?</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="section1.html">Getting Started with automation orchestrator</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="section2.html">How the Automation Orchestrator Works</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="section3.html">How to Build a Workflow on the Canvas</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="tabs-demo.html">Tabbed code blocks</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Introduction to Automation Orchestrator for Red Hat Ansible Automation Platform</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Introduction to Automation Orchestrator for Red Hat Ansible Automation Platform</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Introduction to Automation Orchestrator for Red Hat Ansible Automation Platform</a></li>
+    <li><a href="section5.html">End-to-End Walkthrough: RHEL CVE Remediation with AI Triage</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">End-to-End Walkthrough: RHEL CVE Remediation with AI Triage</h1>
+<div class="paragraph">
+<p>A full video walkthrough of this workflow is available. Follow along with the steps below as you watch.</p>
+</div>
+<div class="videoblock">
+<div class="content">
+<video src="_images/workflow.mp4" width="640" height="360" controls>
+Your browser does not support the video tag.
+</video>
+</div>
+</div>
+<div class="videoblock">
+<div class="content">
+<iframe width="640" height="360" src="https://www.youtube.com/embed/LD7faJXRpHM?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
+<div class="paragraph">
+<p>Now that you understand each step type and how the canvas works, let&#8217;s walk through a real-world example from start to finish. This is a complete CVE remediation workflow that combines every major step type you have learned: a manual trigger, an AI task agent with MCP tools, a switch step with three branches, human approval for production, AAP job template execution, and a Mattermost notification for cases where no fix exists.</p>
+</div>
+<div class="paragraph">
+<p><strong>Scenario</strong>:  A CVE alert is raised against RHEL hosts in your environment. You need to triage it intelligently, check whether a patch exists, determine whether the affected host is in development or production, patch automatically if safe to do so, require human approval before touching production, and notify your SRE team with actionable context when no remediation is available.</p>
+</div>
+<div class="paragraph">
+<p>This is exactly the kind of multi-step, multi-mode challenge the Automation Orchestrator is built for.</p>
+</div>
+<div class="paragraph">
+<p><strong>Part 1  Configure the trigger</strong></p>
+</div>
+<div class="paragraph">
+<p>Add a Manual trigger to start the workflow on demand. This allows you or any operator to initiate the CVE response process directly from the UI or via the workflow run API. No additional configuration is needed for a manual trigger.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+In a production environment, you would swap this for a webhook trigger of an event-driven ansible which is connected to your vulnerability scanning tool, so the workflow fires automatically when a new CVE is detected.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Part 2  Add the AI Triage Agent step</strong></p>
+</div>
+<div class="paragraph">
+<p>Add an AI task agent step named AI Triage Agent. This is the intelligence layer of the workflow.</p>
+</div>
+<div class="paragraph">
+<p>Write a prompt that instructs the agent to:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>- To check whether a reported CVE has an available errata patch, read the target host's context from the Ansible Automation Platform (AAP) inventory to determine if it belongs to a dev or production environment, then return a structured decision containing the errata_available status (true/false), host_environment (dev/prod), cve_id, and recommended_action.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the task agent step parameters, attach your Ansible MCP server integration. This gives the agent live access to vulnerability and remediation data  routing decisions are based on real errata availability, not assumptions.</p>
+</div>
+<div class="paragraph">
+<p>Define a response schema that locks the output to the four fields above so the switch step downstream can reliably evaluate them.</p>
+</div>
+<div class="paragraph">
+<p><strong>Part 3  Add the Route Decision switch step</strong></p>
+</div>
+<div class="paragraph">
+<p>Add a switch step named Route Decision. This step reads the agent output and directs execution to one of three branches based on what the AI triage agent found.</p>
+</div>
+<div class="paragraph">
+<p>Configure three cases:</p>
+</div>
+<div class="paragraph">
+<p><strong>Case 1</strong>  errata_available is true AND host_environment is dev
+Route to the automated dev patching branch. No human approval required.</p>
+</div>
+<div class="paragraph">
+<p><strong>Case 2</strong>  errata_available is true AND host_environment is prod
+Route to the production patching branch, which includes a human approval gate before any changes are made.</p>
+</div>
+<div class="paragraph">
+<p><strong>Case 3</strong>  Default (no errata available or host unaffected)
+Route to the investigation branch, where a second AI agent digs deeper and the result is sent to the SRE team.</p>
+</div>
+<div class="paragraph">
+<p><strong>Part 4  Add the AAP job template steps (Auto-patch dev)</strong></p>
+</div>
+<div class="paragraph">
+<p>For both the dev and production branches, add the following three AAP job template steps in sequence:</p>
+</div>
+<div class="paragraph">
+<p><strong>AAP Job Template: Fetch and Commit to Gitea</strong>
+This step runs the cve_fetch_and_commit.yml playbook. It calls Red Hat Ansible Lightspeed to download the generated remediation playbook for this specific CVE and commits it to your Gitea repository, creating a versioned, auditable record of the fix.</p>
+</div>
+<div class="paragraph">
+<p><strong>AAP Job Template: Sync and Deploy via AAP</strong>
+This step runs the cve_sync_and_deploy.yml playbook. It syncs the AAP project from Gitea so the automation controller has the latest playbook, then creates a scoped job template targeted at the affected hosts.</p>
+</div>
+<div class="paragraph">
+<p><strong>AAP Job Template: Run CVE Remediation</strong>
+This step executes the patch playbook against the target RHEL hosts. This is where the actual CVE fix is applied.</p>
+</div>
+<div class="paragraph">
+<p>For the dev branch, these three steps run automatically with no human intervention. For the production branch, these same three steps run  but only after the approval gate in step 5 is cleared.</p>
+</div>
+<div class="paragraph">
+<p><strong>Part 5  Add the human approval step ( Approval prod)</strong></p>
+</div>
+<div class="paragraph">
+<p>On the production branch, before the Fetch and Commit step, insert a Human Approval step named Approve Production Patch.</p>
+</div>
+<div class="paragraph">
+<p>Configure it as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Set a decision window of 30 minutes. If no decision is made within that time, the fallback decision is rejected  protecting production from unreviewed changes.</p>
+</li>
+<li>
+<p>In the approval context, include the cve_id, affected_component, and recommended_action fields from the AI triage agent output so approvers have full context before deciding.</p>
+</li>
+<li>
+<p>Assign the approval to your SRE or change management team using the approval:decide permission.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>When the workflow reaches this step, execution pauses. The approver receives the request in the Approvals page, reviews the agent&#8217;s triage findings, and approves or rejects. Only on approval does the patching pipeline continue.</p>
+</div>
+<div class="paragraph">
+<p><strong>Part 6 Add the investigation branch steps (Investigate)</strong></p>
+</div>
+<div class="paragraph">
+<p>For the third branch  where no errata is available or the host is unaffected  add the following steps:</p>
+</div>
+<div class="paragraph">
+<p><strong>AI Task Agent: No Known Remediation</strong>
+Add a second AI task agent step. Write a prompt that instructs the agent to investigate further using the CVE ID. The agent should analyze the CVSS score, check Red Hat Advisor recommendations, review installed package versions on the affected host, and produce an actionable investigation report.</p>
+</div>
+<div class="paragraph">
+<p><strong>Script Step: Parse Investigation Result</strong>
+Add a script step to reshape the agent&#8217;s output into a structured format that the downstream notification step can consume cleanly. This step normalizes field names and formats the report body.</p>
+</div>
+<div class="paragraph">
+<p><strong>AAP Job Template: Notify Mattermost</strong>
+Add an AAP job template step that runs the notify_mattermost_cve.yml playbook. This posts the structured investigation report to a designated Mattermost channel so your SRE team receives actionable context  not just a dead-end alert that a CVE was found with no fix.</p>
+</div>
+<div class="paragraph">
+<p><strong>Part 7  Save, verify, and publish</strong></p>
+</div>
+<div class="paragraph">
+<p>Save the workflow to create a versioned draft. Click Verify to run on-demand validation  confirm there are no disconnected steps, missing parameters, or invalid field references across all three branches.</p>
+</div>
+<div class="paragraph">
+<p>Run the workflow manually using the Run button to test the end-to-end flow. Use the execution detail view to step through each branch, inspect the AI agent&#8217;s reasoning under the Agent steps tab, and confirm the AAP jobs dispatch and complete successfully.</p>
+</div>
+<div class="paragraph">
+<p>Once validated, click Publish. The workflow is now live and ready for manual invocation  or, when you are ready, connect it to your vulnerability scanning tool via a webhook trigger so it fires automatically on every new CVE alert.</p>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script defer src="../../../_/js/vendor/tabs.js"></script>
+<script defer src="../../../_/js/vendor/reading-time.js"></script>
+<script src="../../../_/js/vendor/lunr.js"></script>
+<script src="../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../.." data-snippet-length="100" data-stylesheet="../../../_/css/search.css"></script>
+<script async src="../../../search-index.js"></script>
+  </body>
+</html>

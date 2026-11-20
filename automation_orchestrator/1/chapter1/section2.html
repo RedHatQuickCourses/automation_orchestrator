@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>How the Automation Orchestrator Works :: Introduction to Automation Orchestrator for Red Hat Ansible Automation Platform</title>
+    <link rel="prev" href="section1.html">
+    <link rel="next" href="section3.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.12">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/tabs.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/collapsible.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/reading-time.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/audio-transcript.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Introduction to Automation Orchestrator for Red Hat Ansible Automation Platform</a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search the docs">
+        </div>
+      </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/automation_orchestrator/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="automation_orchestrator" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Introduction to Automation Orchestrator for Red Hat Ansible Automation Platform</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">What Is the Automation Orchestrator?</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="section1.html">Getting Started with automation orchestrator</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="section2.html">How the Automation Orchestrator Works</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="section3.html">How to Build a Workflow on the Canvas</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="tabs-demo.html">Tabbed code blocks</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Introduction to Automation Orchestrator for Red Hat Ansible Automation Platform</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Introduction to Automation Orchestrator for Red Hat Ansible Automation Platform</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Introduction to Automation Orchestrator for Red Hat Ansible Automation Platform</a></li>
+    <li><a href="index.html">What Is the Automation Orchestrator?</a></li>
+    <li><a href="section2.html">How the Automation Orchestrator Works</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">How the Automation Orchestrator Works</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Let&#8217;s First talk about Installation and Configuration</p>
+</div>
+<div class="paragraph">
+<p>The Automation Orchestrator is now available as a separately licensed add-on SKU to Red Hat Ansible Automation Platform, providing full Red Hat support entitlement including access to support cases, security advisories, and lifecycle guarantees.</p>
+</div>
+<div class="paragraph">
+<p><strong>To get started</strong>:</p>
+</div>
+<div class="paragraph">
+<p>Once an add-on SKU has been purchased and enabled, there are three methods to install the automation orchestrator. Installation then happens in two phases: first you install the operator, then you create an instance.</p>
+</div>
+<div class="paragraph">
+<p>You have three ways to install the automation orchestrator:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>OpenShift CLI  using <code>oc</code> commands to create an Operator Lifecycle Manager (OLM) subscription. This is the recommended method for production and CLI-based provisioning workflows.</p>
+</li>
+<li>
+<p>OpenShift Web Console  install directly from OperatorHub for a guided, graphical experience.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Once the operator is running, you create an AutomationOrchestrator custom resource to deploy the application and configure its components  including your PostgreSQL database connection, ingress settings, and optional integrations such as S3 storage and an LLM provider.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>aapctl CLI (Technology Preview)  a companion CLI that installs the operator and configures the deployment in a single step, supporting GitOps workflows through manifest generation.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>After deployment, retrieve the initial admin password from the OpenShift secret and log in to the web interface. From there, connect your Ansible Automation Platform instance to enable single sign-on and job dispatch, then configure your LLM provider credential when you are ready to use AI task agent steps in your workflows.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_understanding_the_components"><a class="anchor" href="#_understanding_the_components"></a>Understanding the Components</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When you log in to the automation orchestrator, you will see six key areas in the sidebar:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Area</th>
+<th class="tableblock halign-left valign-top">What It Does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Workflow Builder</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Where you design automation workflows on the canvas</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Workflows</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lists all saved workflows you have access to</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Workflow Runs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Shows the execution history of all workflow runs</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Approvals</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Where human approval requests are reviewed and acted on</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Configuration</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Manage integrations, credentials, identity providers, and settings</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">System Administration</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><strong>Access Management</strong>: Manage users, groups, projects, policies, and roles.</p>
+</li>
+<li>
+<p><strong>Identity Providers</strong>: Configure OIDC-based single sign-on (SSO).</p>
+</li>
+<li>
+<p><strong>Settings</strong>: Manage global runtime and integration settings.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>These six areas cover the full lifecycle of a workflow from design to execution to governance.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_canvas_your_workflow_design_surface"><a class="anchor" href="#_the_canvas_your_workflow_design_surface"></a>The Canvas Your Workflow Design Surface</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The canvas is where everything comes together. Think of it as a visual programming surface where you place steps, connect them in order, and define the logic of your automation.</p>
+</div>
+<div class="paragraph">
+<p>When you open the Workflow Builder, you start with a blank canvas and a trigger step on the right-hand panel. From there, you add steps, connect them with lines that define execution order, and configure each step using the details panel.</p>
+</div>
+<div class="paragraph">
+<p>The canvas has four main areas:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Top toolbar: workflow name and version state (Draft, Published, or Unpublished changes), save, run, publish, and options</p>
+</li>
+<li>
+<p>Selection of a project : where all your workflows reside</p>
+</li>
+<li>
+<p>Canvas workspace : the central area where you arrange and connect steps</p>
+</li>
+<li>
+<p>Details panel: appears when you click a step; shows Input, Parameters, and Output for that step</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>As you build, the canvas gives you a live picture of your workflow. When you run it, the same canvas becomes your monitoring view on each step lights up with its current state in real time.</p>
+</div>
+<div class="sect2">
+<h3 id="_understanding_steps"><a class="anchor" href="#_understanding_steps"></a>Understanding Steps</h3>
+<div class="paragraph">
+<p>Steps were previously called nodes in earlier versions of the tool. You may still see the term "node" in some places within the product UI, but the current and correct term is steps.</p>
+</div>
+<div class="paragraph">
+<p>Steps are the building blocks of every workflow. Each step represents a discrete action or decision point. You connect steps together to define the order of execution and the logic of your automation.</p>
+</div>
+<div class="paragraph">
+<p>There are six categories of steps available in the step palette:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Triggers: Every workflow starts with exactly one trigger. This defines how and when the workflow begins.</p>
+</li>
+<li>
+<p>Task Agent:  Bring AI-assisted reasoning into your workflow using a large language model that can reason, call tools, and return structured output.</p>
+</li>
+<li>
+<p>Logic:  Shape the execution path: conditions, switches, loops, waits, and converge points.</p>
+</li>
+<li>
+<p>Approval:  Pause the workflow at a defined point and wait for a human decision before continuing.</p>
+</li>
+<li>
+<p>AAP Execution:  Run Ansible job templates or workflow templates from your connected Ansible Automation Platform instance.</p>
+</li>
+<li>
+<p>Action:  Do the actual work: calling REST APIs, running scripts, and connecting to external systems.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Each step displays the relevant panels:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Input : data coming in from upstream steps Schema, table, JSON.</p>
+</li>
+<li>
+<p>Parameters : The Parameters tab contains the configuration fields specific to the step type. Each step type has different parameters.</p>
+</li>
+<li>
+<p>Output : what this step produces for downstream steps</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can also configure the following settings on most step types:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>On failure : controls what happens if the step fails: stop the workflow, continue with errors, or use the system default.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>System default uses the platform-wide behavior configured by your administrator in System Administration → Settings. The platform default is Stop.</p>
+</li>
+<li>
+<p>Continue on failure: the step fails but downstream steps continue executing. The overall run completes with a Completed with errors status.</p>
+</li>
+<li>
+<p>Stop workflow or branch on failure: execution halts at this step. If the step is on a parallel branch, only that branch stops.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Timeout : when the duration expires, the step is marked as Failed and On failure behavior is applied. If no timeout is set, the step uses the global default configured in Settings.</p>
+</li>
+<li>
+<p>Retry policy : only available for HTTP request and AAP Execution steps:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Max retries: number of retry attempts after the first failure (0 disables retries)</p>
+</li>
+<li>
+<p>Initial interval: delay in seconds before the first retry</p>
+</li>
+<li>
+<p>Max interval: caps how long the delay can grow</p>
+</li>
+<li>
+<p>Backoff coefficient: set to 1.0 for fixed-interval retries, greater than 1.0 for exponential backoff</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The key point the feedback is driving at: "system default" is meaningless unless the course tells practitioners where that default is set — which is System Administration → Settings. Without that, they have no idea how to change it.</p>
+</div>
+<div class="paragraph">
+<p>On failure has three options that need to be explained:</p>
+</div>
+<div class="paragraph">
+<p>Timeout — when the duration expires, the step is marked as Failed and On failure behavior is applied. If no timeout is set, the step uses the global default configured in Settings.</p>
+</div>
+<div class="paragraph">
+<p>Retry policy — only available for HTTP request and AAP Execution steps:</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Max retries: number of retry attempts after the first failure (0 disables retries)</p>
+</li>
+<li>
+<p>Initial interval: delay in seconds before the first retry</p>
+</li>
+<li>
+<p>Max interval: caps how long the delay can grow</p>
+</li>
+<li>
+<p>Backoff coefficient: set to 1.0 for fixed-interval retries, greater than 1.0 for exponential backoff</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The key point the feedback is driving at, <strong>system default</strong> is meaningless unless the course tells practitioners where that default is set which is System Administration → Settings. Without that, they have no idea how to change it.</p>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="section1.html">Getting Started with automation orchestrator</a></span>
+  <span class="next"><a href="section3.html">How to Build a Workflow on the Canvas</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script defer src="../../../_/js/vendor/tabs.js"></script>
+<script defer src="../../../_/js/vendor/reading-time.js"></script>
+<script src="../../../_/js/vendor/lunr.js"></script>
+<script src="../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../.." data-snippet-length="100" data-stylesheet="../../../_/css/search.css"></script>
+<script async src="../../../search-index.js"></script>
+  </body>
+</html>

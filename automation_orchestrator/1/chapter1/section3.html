@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>How to Build a Workflow on the Canvas :: Introduction to Automation Orchestrator for Red Hat Ansible Automation Platform</title>
+    <link rel="prev" href="section2.html">
+    <link rel="next" href="tabs-demo.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.12">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/tabs.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/collapsible.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/reading-time.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/audio-transcript.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Introduction to Automation Orchestrator for Red Hat Ansible Automation Platform</a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search the docs">
+        </div>
+      </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/automation_orchestrator/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="automation_orchestrator" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Introduction to Automation Orchestrator for Red Hat Ansible Automation Platform</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">What Is the Automation Orchestrator?</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="section1.html">Getting Started with automation orchestrator</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="section2.html">How the Automation Orchestrator Works</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="section3.html">How to Build a Workflow on the Canvas</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="tabs-demo.html">Tabbed code blocks</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Introduction to Automation Orchestrator for Red Hat Ansible Automation Platform</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Introduction to Automation Orchestrator for Red Hat Ansible Automation Platform</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Introduction to Automation Orchestrator for Red Hat Ansible Automation Platform</a></li>
+    <li><a href="index.html">What Is the Automation Orchestrator?</a></li>
+    <li><a href="section3.html">How to Build a Workflow on the Canvas</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">How to Build a Workflow on the Canvas</h1>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Configure</strong>: Open the Workflow Builder and set your trigger step every workflow must begin with one.</p>
+</li>
+<li>
+<p><strong>Add Steps</strong>: Click Add Step in the top toolbar to open the step palette. Select the step type you need and it is added to the canvas or you can also just click the plus icon next to an existing step.</p>
+</li>
+<li>
+<p><strong>Connect</strong>: Draw lines between steps to establish the execution sequence and data flow direction.</p>
+</li>
+<li>
+<p><strong>Configure Each Step</strong>: Click a step to open the details panel. Set parameters, reference upstream data from the Input panel, and define output schemas where applicable.</p>
+</li>
+<li>
+<p><strong>Execute</strong>: Save the workflow to create a version, verify it for errors, then run it manually to test or publish it for automated triggering.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Lets understand the canvas steps with a bit more detail:</p>
+</div>
+<div class="paragraph">
+<p><strong>Part 1. Triggers Where Every Workflow Begins</strong></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/3.1.png" alt="3.1">
+</div>
+</div>
+<div class="paragraph">
+<p>Every workflow must start with a trigger step. When you open the Workflow Builder, the trigger panel is already open on the right, waiting for you to configure it. There is no workflow without a trigger.</p>
+</div>
+<div class="paragraph">
+<p>The automation orchestrator supports four trigger types:</p>
+</div>
+<div class="paragraph">
+<p><strong>Manual</strong>: A user clicks Run in the UI or calls the workflow run API directly. No additional configuration needed. Use this for on-demand tasks, ad hoc troubleshooting, or operator-initiated changes.</p>
+</div>
+<div class="paragraph">
+<p><strong>Schedule</strong>: The workflow runs automatically at a recurring time or interval. You can define schedules using a visual builder (minutely, hourly, daily, weekly, monthly, yearly) or a custom cron expression. Both support time zone selection and a missed-schedule behavior policy.</p>
+</div>
+<div class="paragraph">
+<p><strong>Webhook</strong>: An external system triggers the workflow by sending an HTTP POST to the webhook URL. AO generates the URL and an authentication token for you. Use this when you want an external tool: a ticketing system, a monitoring platform, a CI/CD pipeline to initiate your workflow.</p>
+</div>
+<div class="paragraph">
+<p><strong>Event-Driven Ansible</strong>: The workflow starts in response to an event processed by Event-Driven Ansible. This is your real-time, event-reactive trigger. When something happens in your environment and EDA processes it, AO can immediately kick off the appropriate workflow response.</p>
+</div>
+<div class="paragraph">
+<p>Regardless of trigger type, you can always run any workflow manually by clicking the Run button. The trigger type defines the default behavior, not a restriction.</p>
+</div>
+<div class="paragraph">
+<p><strong>Part 2. AI Task Agent Steps  Where Intelligence Enters the Workflow</strong></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/3.2.png" alt="3.2">
+</div>
+</div>
+<div class="paragraph">
+<p>The AI task agent step is one of the most powerful  and newest capabilities in the automation orchestrator. It allows you to include an AI model as an active participant in your workflow, not just a passive tool.</p>
+</div>
+<div class="paragraph">
+<p>When a workflow reaches a task agent step, the AI model receives a prompt, reasons through it, calls tools if needed, and returns a structured response that downstream steps can use.</p>
+</div>
+<div class="paragraph">
+<p>Writing the Prompt</p>
+</div>
+<div class="paragraph">
+<p>The prompt is your instruction to the AI agent. Think of it as the task brief. A well-written prompt:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Clearly states what the agent needs to do
+Provides relevant context from upstream steps using dynamic references
+Defines the expected output format using a response schema</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For example, rather than saying <strong>"analyze this log"</strong>, you would write: <strong>"Review the following log output from the previous step and identify the root cause of the error. Return your findings as a JSON object with fields: root_cause, affected_component, and recommended_action."</strong></p>
+</div>
+<div class="paragraph">
+<p>The response schema locks the agent&#8217;s output into a predictable structure, so downstream steps know exactly what fields to reference.</p>
+</div>
+<div class="paragraph">
+<p>Connecting MCP Tools to the Agent</p>
+</div>
+<div class="paragraph">
+<p>Model Context Protocol (MCP) tools extend what the agent can do. Instead of just reasoning over text, the agent can actively call tools, querying systems, fetching live data, or triggering actions as part of its reasoning process.</p>
+</div>
+<div class="paragraph">
+<p>You connect MCP tools to a task agent step by configuring an MCP server integration in the Configuration section, then selecting it within the task agent step parameters. Once connected, the agent can call those tools during its reasoning loop — for example, querying a CMDB, looking up a ticket, or checking host inventory — before producing its final output.</p>
+</div>
+<div class="paragraph">
+<p>When configuring a task agent step, you can select specific tools from the MCP server rather than granting access to all of them. This follows a least-privilege approach and the agent can only call the tools it actually needs for that step. Limiting tool access also reduces LLM token consumption, since every tool call the agent makes adds to the cost of that step.</p>
+</div>
+<div class="paragraph">
+<p>Because AI agents can call tools and take actions, the automation orchestrator wraps them in a governed workflow context. Every tool call, reasoning step, and output is logged and visible in the execution viewer under the Agent steps tab.</p>
+</div>
+<div class="paragraph">
+<p><strong>Part 3. The Logic Step Conditional Branching</strong></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/3.3.png" alt="3.3">
+</div>
+</div>
+<div class="paragraph">
+<p>The switch step lets your workflow make decisions and take different paths based on data. Think of it as a traffic director depending on what value comes in, execution goes down one of several defined branches.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Step</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Use When</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Switch</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">You have three or more possible paths based on a data value</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Conditional</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">You need a simple true/false branch</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wait</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">You need to pause before the next step runs</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Converge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">You need to rejoin parallel branches into one path</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">For each loop</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">You need to repeat an action for every item in a list</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">While loop</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">You need to repeat an action until a condition is met</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Part 4. Launching an AAP execution</strong></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/3.4.png" alt="3.4">
+</div>
+</div>
+<div class="paragraph">
+<p>The Automation Execution template step is how the automation orchestrator hands work back to Ansible. You are not replacing Ansible, you are calling it from within your orchestrated workflow.</p>
+</div>
+<div class="paragraph">
+<p>To add this step:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Click Add Step and select AAP Execution → Ansible Automation Platform job template from the step palette</p>
+</li>
+<li>
+<p>In the details panel, select your Integration — this is the AAP integration configured under Configuration → Integrations</p>
+</li>
+<li>
+<p>Click Set up connection and select the credential to authenticate to your AAP instance</p>
+</li>
+<li>
+<p>Choose the organization and job template you want to run</p>
+</li>
+<li>
+<p>Optionally pass extra variables from upstream steps as inputs to the job using dynamic field references</p>
+</li>
+<li>
+<p>The step dispatches the job to automation controller through automation gateway, monitors its progress, and captures the output — making it available for downstream steps to reference</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>By default, an AAP job template step captures job metadata as output i.e. status, job ID, and timestamps. To pass structured data back to the automation orchestrator workflow, your playbook must use the Ansible set_stats module. Any values set with set_stats appear in the artifacts field of the step&#8217;s output and can be referenced by downstream steps using expressions. Without set_stats, your playbook results stay inside AAP and are not accessible to the rest of the workflow.</p>
+</div>
+<div class="paragraph">
+<p>You can also use AAP Execution → Ansible Automation Platform workflow template if you want to launch an entire AAP workflow, not just a single job template.</p>
+</div>
+<div class="paragraph">
+<p>The AAP job template step supports retry policy configuration. If a job fails due to a transient error, you can configure the step to automatically retry with exponential backoff before marking the workflow step as failed.</p>
+</div>
+<div class="paragraph">
+<p><strong>Part 5. Human Approval Steps Putting People in the Loop</strong></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/3.5.png" alt="3.5">
+</div>
+</div>
+<div class="paragraph">
+<p>Not everything should be fully automated. The human approval step pauses workflow execution at a defined point and waits for a person to approve or reject before continuing.</p>
+</div>
+<div class="paragraph">
+<p>This is particularly valuable for high-risk changes, compliance-sensitive operations, or situations where human judgment is required before automation proceeds.</p>
+</div>
+<div class="paragraph">
+<p>When a workflow reaches an approval step:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>An approval request is created and visible in the <strong>Approvals</strong> page in the sidebar</p>
+</li>
+<li>
+<p>Users with the <code>approval:decide</code> permission, or any named approvers and approval groups configured on the step, are notified.</p>
+</li>
+<li>
+<p>The workflow execution shows a <strong>Waiting for approval</strong> status</p>
+</li>
+<li>
+<p>Once approved or rejected, the workflow continues down the appropriate path</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>You can configure:
+Specific named approvers or approval groups directly on the approval step, or allow any user with the <code>approval:decide</code> permission to decide
+A decision window (timeout) after which a fallback decision is applied automatically
+Context information so approvers understand what they are approving</p>
+</div>
+<div class="paragraph">
+<p><strong>What Building a Workflow Actually Looks Like</strong></p>
+</div>
+<div class="paragraph">
+<p>Here is the typical sequence you follow when building a workflow on the canvas:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open the Workflow Builder and configure your trigger step</p>
+</li>
+<li>
+<p>Click <strong>Add Step</strong> in the top toolbar to open the step palette, or click the <strong>plus icon</strong> next to an existing step, and choose your first action</p>
+</li>
+<li>
+<p>Connect steps by drawing lines between them on the canvas</p>
+</li>
+<li>
+<p>Click each step to open the details panel and configure its parameters</p>
+</li>
+<li>
+<p>Reference upstream data by copying field paths from the Input panel into parameter fields</p>
+</li>
+<li>
+<p>Add logic flow conditions, switches, loops to shape your logic</p>
+</li>
+<li>
+<p>Save to create a new version, then Verify to check for errors</p>
+</li>
+<li>
+<p>Run to test, then Publish when ready for production</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>As your workflow grows, the canvas gives you a clear visual map of the entire automation every step, every connection, every branch all in one place.</p>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="section2.html">How the Automation Orchestrator Works</a></span>
+  <span class="next"><a href="tabs-demo.html">Tabbed code blocks</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script defer src="../../../_/js/vendor/tabs.js"></script>
+<script defer src="../../../_/js/vendor/reading-time.js"></script>
+<script src="../../../_/js/vendor/lunr.js"></script>
+<script src="../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../.." data-snippet-length="100" data-stylesheet="../../../_/css/search.css"></script>
+<script async src="../../../search-index.js"></script>
+  </body>
+</html>

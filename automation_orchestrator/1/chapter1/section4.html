@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Governance: Securing and Controlling Access :: Introduction to Automation Orchestrator for Red Hat Ansible Automation Platform</title>
+    <meta name="generator" content="Antora 3.2.0-alpha.12">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/tabs.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/collapsible.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/reading-time.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/audio-transcript.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Introduction to Automation Orchestrator for Red Hat Ansible Automation Platform</a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search the docs">
+        </div>
+      </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/automation_orchestrator/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="automation_orchestrator" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Introduction to Automation Orchestrator for Red Hat Ansible Automation Platform</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">What Is the Automation Orchestrator?</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="section1.html">Getting Started with automation orchestrator</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="section2.html">How the Automation Orchestrator Works</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="section3.html">How to Build a Workflow on the Canvas</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="tabs-demo.html">Tabbed code blocks</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Introduction to Automation Orchestrator for Red Hat Ansible Automation Platform</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Introduction to Automation Orchestrator for Red Hat Ansible Automation Platform</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Introduction to Automation Orchestrator for Red Hat Ansible Automation Platform</a></li>
+    <li><a href="section4.html">Governance: Securing and Controlling Access</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Governance: Securing and Controlling Access</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Understanding Policy-Based Access Control</strong></p>
+</div>
+<div class="paragraph">
+<p>The automation orchestrator uses a policy-based authorization model not traditional role-based access control (RBAC). This distinction matters for Tech Level 2 practitioners.</p>
+</div>
+<div class="paragraph">
+<p>In a traditional RBAC model, you assign fixed roles to users and those roles map to predefined permission sets. The automation orchestrator takes a more flexible approach: access decisions are made by evaluating policies against the user&#8217;s identity, group memberships, the resource being accessed, and the action being attempted.</p>
+</div>
+<div class="paragraph">
+<p>This gives you:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Fine-grained access across organizational boundaries you can grant a team access to run a specific workflow without giving them access to all workflows</p>
+</li>
+<li>
+<p>Explainability every access decision returns the specific policy that allowed or denied it</p>
+</li>
+<li>
+<p>Extensibility you can add new policies without changing the role model</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The automation orchestrator uses a deny-by-default model. If no policy explicitly allows an action, access is denied. You do not need an explicit deny rule; the absence of an allow policy is sufficient to block access.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_resource_types_and_actions"><a class="anchor" href="#_resource_types_and_actions"></a>Resource Types and Actions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The automation orchestrator enforces authorization on the following resource types:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Resource Type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Actions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Scope</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">workflow</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">create, read, update, delete</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Project</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Automation workflows</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">execution</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read, run</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Project</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Workflow execution records</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">credential</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">create, read, update, delete</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Project</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Credentials for workflow steps (must belong to a project)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">project</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">create, read, update, delete</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">System</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Project scoping and configuration</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">group</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">create, read, update, delete, manage-members</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">System</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Group membership management</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">approval</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">create, read, decide</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Project</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Human-in-the-loop approval steps</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integration</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">create, read, update, delete, discover, validate, refresh</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">System or Project</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">External tool integrations</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">role-assignment</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read, assign, revoke</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">System or Project</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Role assignments for users and groups</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_organizing_users_with_groups_and_projects"><a class="anchor" href="#_organizing_users_with_groups_and_projects"></a>Organizing Users with Groups and Projects</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Users are organized into groups and projects to control access at scale:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Groups</strong>: collections of users that you can assign roles and policies to collectively. Group membership can be managed manually or synchronized from an identity provider.</p>
+</li>
+<li>
+<p><strong>Projects</strong>: a scoping boundary for workflows and credentials. Credentials must belong to a project. Project membership does not automatically grant access policies still control what members can do within a project.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This flat resource model means there is no permission inheritance hierarchy. Access is granted per resource or per policy and not cascaded down from a parent project or group. A user&#8217;s access to one workflow does not automatically extend to other workflows in the same project.</p>
+</div>
+<div class="paragraph">
+<p><strong>Credentials and Secure Storage</strong></p>
+</div>
+<div class="paragraph">
+<p>Credentials are how the automation orchestrator securely stores authentication information for the external systems your workflows connect to. Each credential type corresponds to a specific integration:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>AAP credentials: username/password or OAuth token for API access</p>
+</li>
+<li>
+<p>LLM Provider credentials: API key for your AI/LLM service</p>
+</li>
+<li>
+<p>SSH Key: SSH private key for connections to remote servers</p>
+</li>
+<li>
+<p>HTTP Bearer Token: For APIs using bearer token authentication</p>
+</li>
+<li>
+<p>HTTP Basic Auth: For APIs using username/password authentication</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Credentials are encrypted at rest. The encryption key is stored as an OpenShift secret and can be rotated as a day-2 operation.</p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script defer src="../../../_/js/vendor/tabs.js"></script>
+<script defer src="../../../_/js/vendor/reading-time.js"></script>
+<script src="../../../_/js/vendor/lunr.js"></script>
+<script src="../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../.." data-snippet-length="100" data-stylesheet="../../../_/css/search.css"></script>
+<script async src="../../../search-index.js"></script>
+  </body>
+</html>
