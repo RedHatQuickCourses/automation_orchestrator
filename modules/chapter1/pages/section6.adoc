@@ -1,0 +1,12 @@
+= Course Conclusion
+
+Throughout this course, you have moved from understanding what the automation orchestrator is and why it exists, to building, and governing real automation workflows.
+
+We covered that the automation orchestrator is not a replacement for Red Hat Ansible Automation Platform, it is the orchestration layer that sits above your existing automation and connects it. It brings together task-driven, event-driven, and AI-driven automation into a single, governed, visual workflow, enabling you to tackle automation challenges that go beyond what any single tool can handle alone.
+
+You explored the visual workflow designer and learned how to construct multi-step workflows using triggers, AI task agent steps, switch steps, AAP job template steps, and human approval gates. You also learned how data flows between steps, how to write effective AI agent prompts, and how to extend agent capabilities using MCP tools.
+
+On the governance side, you were introduced to how the automation orchestrator policy-based access control model works, how credentials are securely stored and managed, and how to organize users through groups and projects to control access at scale.
+
+Finally, you gained hands-on experience monitoring workflow executions in real time, interpreting step-level output and agent reasoning logs, and systematically troubleshooting the most common failure scenarios from integration health issues to approval bottlenecks to validation errors before publishing.
+

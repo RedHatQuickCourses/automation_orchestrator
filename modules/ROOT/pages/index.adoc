@@ -1,30 +1,41 @@
-= An Example Quick Course
+= "Introduction to Automation Orchestrator for Red Hat Ansible Automation Platform"
 :navtitle: Home
 
 == Introduction
 
-Course Title: Course title FIXME
+In this course, you will learn how the automation orchestrator extends Red Hat Ansible Automation Platform to design, execute, and govern complex, multi-step automation workflows. You will explore core workflow concepts, the visual workflow designer, AI task agents, event-driven triggers, human approval gates, and integration capabilities.
 
-Description:
-Course description FIXME
+You will also discover how the automation orchestrator unifies existing Ansible automation, AI-driven decision making, external tool integrations, and governance controls to deliver coordinated automation across hybrid IT environments.
 
 Duration: pass:[<span class="course-total-duration" aria-live="polite">…</span>]
 
 == Objectives
 
-On completing this course, you should be able to:
+By the end of this course, you will be able to:
 
-* Observable, measurable objective...
-* Observable, measurable objective...
-* Observable, measurable objective...
+- Understand automation orchestrator architecture and core concepts.
+- Design multi-step canvas workflows with appropriate steps and data flows.
+- Learn about different Steps settings and what their purpose is.
+- Integrate APIs, event-driven triggers, AI agents, MCPs, and governance controls.
+- Implement an end-to-end workflow for a practical IT use case.
+
 
 == Prerequisites
 
-This course assumes that you have the following prior experience:
+Before taking this course, you should have:
+- A working understanding of Red Hat Ansible Automation Platform and its core components
+- Familiarity with basic Ansible automation concepts and workflows
 
-* Course or experience...
-* Course or experience...
-* Course or experience...
+== Contributors
+
+The PTL team acknowledges the valuable contributions of the following Red Hat associates:
+
+- Andrius Benokraitis (Contributor)
+- Aubrey Trotter (Contributor)
+- Alex Dworjan (Contributor)
+- Roger Lopez (Contributor)
+- Amrinder Singh (Content Architect)
+- Anna Swicegood (Learning Product Manager)
 
 NOTE: **Use of Artificial Intelligence:**
 This publication contains content or media that is generated or assisted by AI tools. All the Training deliverables have primarily human authorship, and all content was reviewed by a human domain expert.

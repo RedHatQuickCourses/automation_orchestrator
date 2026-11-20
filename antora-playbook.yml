@@ -1,6 +1,6 @@
 site:
-  title: FIXME Course Title
-  start_page: REPLACEREPONAME::index.adoc
+  title: "Introduction to Automation Orchestrator for Red Hat Ansible Automation Platform"
+  start_page: automation_orchestrator::index.adoc
 
 antora:
   extensions:

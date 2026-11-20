@@ -1,0 +1,98 @@
+= End-to-End Walkthrough: RHEL CVE Remediation with AI Triage
+
+A full video walkthrough of this workflow is available. Follow along with the steps below as you watch.
+
+video::workflow.mp4[width=640,height=360]
+
+video::LD7faJXRpHM[youtube,width=640,height=360]
+
+Now that you understand each step type and how the canvas works, let's walk through a real-world example from start to finish. This is a complete CVE remediation workflow that combines every major step type you have learned: a manual trigger, an AI task agent with MCP tools, a switch step with three branches, human approval for production, AAP job template execution, and a Mattermost notification for cases where no fix exists.
+
+**Scenario**:  A CVE alert is raised against RHEL hosts in your environment. You need to triage it intelligently, check whether a patch exists, determine whether the affected host is in development or production, patch automatically if safe to do so, require human approval before touching production, and notify your SRE team with actionable context when no remediation is available.
+
+This is exactly the kind of multi-step, multi-mode challenge the Automation Orchestrator is built for.
+
+**Part 1  Configure the trigger**
+
+Add a Manual trigger to start the workflow on demand. This allows you or any operator to initiate the CVE response process directly from the UI or via the workflow run API. No additional configuration is needed for a manual trigger.
+
+[NOTE]
+In a production environment, you would swap this for a webhook trigger of an event-driven ansible which is connected to your vulnerability scanning tool, so the workflow fires automatically when a new CVE is detected.
+
+**Part 2  Add the AI Triage Agent step**
+
+Add an AI task agent step named AI Triage Agent. This is the intelligence layer of the workflow.
+
+Write a prompt that instructs the agent to:
+
+----
+- To check whether a reported CVE has an available errata patch, read the target host's context from the Ansible Automation Platform (AAP) inventory to determine if it belongs to a dev or production environment, then return a structured decision containing the errata_available status (true/false), host_environment (dev/prod), cve_id, and recommended_action.
+----
+
+In the task agent step parameters, attach your Ansible MCP server integration. This gives the agent live access to vulnerability and remediation data  routing decisions are based on real errata availability, not assumptions.
+
+Define a response schema that locks the output to the four fields above so the switch step downstream can reliably evaluate them.
+
+**Part 3  Add the Route Decision switch step**
+
+Add a switch step named Route Decision. This step reads the agent output and directs execution to one of three branches based on what the AI triage agent found.
+
+Configure three cases:
+
+**Case 1**  errata_available is true AND host_environment is dev
+Route to the automated dev patching branch. No human approval required.
+
+**Case 2**  errata_available is true AND host_environment is prod
+Route to the production patching branch, which includes a human approval gate before any changes are made.
+
+**Case 3**  Default (no errata available or host unaffected)
+Route to the investigation branch, where a second AI agent digs deeper and the result is sent to the SRE team.
+
+**Part 4  Add the AAP job template steps (Auto-patch dev)**
+
+For both the dev and production branches, add the following three AAP job template steps in sequence:
+
+**AAP Job Template: Fetch and Commit to Gitea**
+This step runs the cve_fetch_and_commit.yml playbook. It calls Red Hat Ansible Lightspeed to download the generated remediation playbook for this specific CVE and commits it to your Gitea repository, creating a versioned, auditable record of the fix.
+
+**AAP Job Template: Sync and Deploy via AAP**
+This step runs the cve_sync_and_deploy.yml playbook. It syncs the AAP project from Gitea so the automation controller has the latest playbook, then creates a scoped job template targeted at the affected hosts.
+
+**AAP Job Template: Run CVE Remediation**
+This step executes the patch playbook against the target RHEL hosts. This is where the actual CVE fix is applied.
+
+For the dev branch, these three steps run automatically with no human intervention. For the production branch, these same three steps run  but only after the approval gate in step 5 is cleared.
+
+**Part 5  Add the human approval step ( Approval prod)**
+
+On the production branch, before the Fetch and Commit step, insert a Human Approval step named Approve Production Patch.
+
+Configure it as follows:
+
+- Set a decision window of 30 minutes. If no decision is made within that time, the fallback decision is rejected  protecting production from unreviewed changes.
+- In the approval context, include the cve_id, affected_component, and recommended_action fields from the AI triage agent output so approvers have full context before deciding.
+- Assign the approval to your SRE or change management team using the approval:decide permission.
+
+When the workflow reaches this step, execution pauses. The approver receives the request in the Approvals page, reviews the agent's triage findings, and approves or rejects. Only on approval does the patching pipeline continue.
+
+**Part 6 Add the investigation branch steps (Investigate)**
+
+For the third branch  where no errata is available or the host is unaffected  add the following steps:
+
+**AI Task Agent: No Known Remediation**
+Add a second AI task agent step. Write a prompt that instructs the agent to investigate further using the CVE ID. The agent should analyze the CVSS score, check Red Hat Advisor recommendations, review installed package versions on the affected host, and produce an actionable investigation report.
+
+**Script Step: Parse Investigation Result**
+Add a script step to reshape the agent's output into a structured format that the downstream notification step can consume cleanly. This step normalizes field names and formats the report body.
+
+**AAP Job Template: Notify Mattermost**
+Add an AAP job template step that runs the notify_mattermost_cve.yml playbook. This posts the structured investigation report to a designated Mattermost channel so your SRE team receives actionable context  not just a dead-end alert that a CVE was found with no fix.
+
+**Part 7  Save, verify, and publish**
+
+Save the workflow to create a versioned draft. Click Verify to run on-demand validation  confirm there are no disconnected steps, missing parameters, or invalid field references across all three branches.
+
+Run the workflow manually using the Run button to test the end-to-end flow. Use the execution detail view to step through each branch, inspect the AI agent's reasoning under the Agent steps tab, and confirm the AAP jobs dispatch and complete successfully.
+
+Once validated, click Publish. The workflow is now live and ready for manual invocation  or, when you are ready, connect it to your vulnerability scanning tool via a webhook trigger so it fires automatically on every new CVE alert.
+

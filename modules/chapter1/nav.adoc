@@ -3,5 +3,3 @@
 ** xref:section2.adoc[]
 ** xref:section3.adoc[]
 ** xref:tabs-demo.adoc[]
-** xref:collapsible-demo.adoc[]
-** xref:images.adoc[Images]

@@ -1,9 +1,12 @@
-= Section 1
-:page-audio-src: audio-file.wav
-:page-transcript-src: sample-transcript.json
-:page-lab-minutes: 50
+= Getting Started with automation orchestrator 
 
-* Create multiple copies of this section as needed.
-* Remove any unnecessary sections or chapter pages.
-* Customize the section as appropriate.
-* Ensure that each page contains a manageable amount of content.
+Red Hat Ansible Automation Platform introduces the automation orchestrator available as an add-on SKU.
+
+== What Are the Dependencies?
+
+The automation orchestrator has two requirements before you can get started. First, it runs exclusively on Red Hat OpenShift Container Platform 4.14 or later, delivered as an operator through the Operator Lifecycle Manager; there is no VM-based or standalone deployment option. Second, it requires Red Hat Ansible Automation Platform 2.7 or later to enable job dispatch to the automation controller and single sign-on through automation gateway, leveraging OpenID Connect (OIDC).
+
+[NOTE]
+If either of these is not in place in your environment, that is your starting point before deploying automation orchestrator.
+
+In the chapters that follow, you will move from understanding these concepts to building and running real workflows of your own.

@@ -1,0 +1,56 @@
+= Governance: Securing and Controlling Access
+
+
+**Understanding Policy-Based Access Control**
+
+The automation orchestrator uses a policy-based authorization model not traditional role-based access control (RBAC). This distinction matters for Tech Level 2 practitioners.
+
+In a traditional RBAC model, you assign fixed roles to users and those roles map to predefined permission sets. The automation orchestrator takes a more flexible approach: access decisions are made by evaluating policies against the user's identity, group memberships, the resource being accessed, and the action being attempted.
+
+This gives you:
+
+* Fine-grained access across organizational boundaries you can grant a team access to run a specific workflow without giving them access to all workflows
+* Explainability every access decision returns the specific policy that allowed or denied it
+* Extensibility you can add new policies without changing the role model
+
+[Important]
+The automation orchestrator uses a deny-by-default model. If no policy explicitly allows an action, access is denied. You do not need an explicit deny rule; the absence of an allow policy is sufficient to block access.
+
+
+== Resource Types and Actions
+
+The automation orchestrator enforces authorization on the following resource types:
+
+|====
+|Resource Type | Actions | Scope | Description
+|workflow | create, read, update, delete | Project | Automation workflows
+|execution | read, run | Project | Workflow execution records
+|credential | create, read, update, delete | Project | Credentials for workflow steps (must belong to a project)
+|project | create, read, update, delete | System | Project scoping and configuration
+|group | create, read, update, delete, manage-members | System | Group membership management
+|approval | create, read, decide | Project | Human-in-the-loop approval steps
+|integration | create, read, update, delete, discover, validate, refresh | System or Project | External tool integrations
+|role-assignment | read, assign, revoke | System or Project | Role assignments for users and groups
+|====
+
+
+== Organizing Users with Groups and Projects
+
+Users are organized into groups and projects to control access at scale:
+
+* **Groups**: collections of users that you can assign roles and policies to collectively. Group membership can be managed manually or synchronized from an identity provider.
+* **Projects**: a scoping boundary for workflows and credentials. Credentials must belong to a project. Project membership does not automatically grant access policies still control what members can do within a project.
+
+This flat resource model means there is no permission inheritance hierarchy. Access is granted per resource or per policy and not cascaded down from a parent project or group. A user's access to one workflow does not automatically extend to other workflows in the same project.
+
+**Credentials and Secure Storage**
+
+Credentials are how the automation orchestrator securely stores authentication information for the external systems your workflows connect to. Each credential type corresponds to a specific integration:
+
+- AAP credentials: username/password or OAuth token for API access
+- LLM Provider credentials: API key for your AI/LLM service
+- SSH Key: SSH private key for connections to remote servers
+- HTTP Bearer Token: For APIs using bearer token authentication
+- HTTP Basic Auth: For APIs using username/password authentication
+
+Credentials are encrypted at rest. The encryption key is stored as an OpenShift secret and can be rotated as a day-2 operation.
