@@ -1,4 +1,4 @@
-= "Introduction to Automation Orchestrator for Red Hat Ansible Automation Platform"
+= Introduction to Automation Orchestrator for Red Hat Ansible Automation Platform
 :navtitle: Home
 
 == Introduction

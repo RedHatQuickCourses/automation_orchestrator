@@ -29,24 +29,18 @@ When you log in to the automation orchestrator, you will see six key areas in th
 |===
 |Area |What It Does
 
-|Workflow Builder
-|Where you design automation workflows on the canvas
+|Workflow Builder |Where you design automation workflows on the canvas
 
-|Workflows
-|Lists all saved workflows you have access to
+|Workflows |Lists all saved workflows you have access to
 
-|Workflow Runs
-|Shows the execution history of all workflow runs
+|Workflow Runs |Shows the execution history of all workflow runs
 
-|Approvals
-|Where human approval requests are reviewed and acted on
+|Approvals |Where human approval requests are reviewed and acted on
 
-|Configuration
-|Manage integrations, credentials, identity providers, and settings
+|Configuration |Manage integrations, credentials, identity providers, and settings
 
 |System Administration
-a|
-* *Access Management*: Manage users, groups, projects, policies, and roles.
+a| * *Access Management*: Manage users, groups, projects, policies, and roles.
 * *Identity Providers*: Configure OIDC-based single sign-on (SSO).
 * *Settings*: Manage global runtime and integration settings.
 |===

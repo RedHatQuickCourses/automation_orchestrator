@@ -4,8 +4,6 @@ A full video walkthrough of this workflow is available. Follow along with the st
 
 video::workflow.mp4[width=640,height=360]
 
-video::LD7faJXRpHM[youtube,width=640,height=360]
-
 Now that you understand each step type and how the canvas works, let's walk through a real-world example from start to finish. This is a complete CVE remediation workflow that combines every major step type you have learned: a manual trigger, an AI task agent with MCP tools, a switch step with three branches, human approval for production, AAP job template execution, and a Mattermost notification for cases where no fix exists.
 
 **Scenario**:  A CVE alert is raised against RHEL hosts in your environment. You need to triage it intelligently, check whether a patch exists, determine whether the affected host is in development or production, patch automatically if safe to do so, require human approval before touching production, and notify your SRE team with actionable context when no remediation is available.
