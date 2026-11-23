@@ -1,6 +1,6 @@
 {
-  "totalSeconds": 1083,
-  "pageCount": 7,
+  "totalSeconds": 1584,
+  "pageCount": 9,
   "pages": [
     {
       "module": "ROOT",
@@ -29,8 +29,18 @@
     },
     {
       "module": "chapter1",
-      "page": "tabs-demo.adoc",
-      "seconds": 20
+      "page": "section4.adoc",
+      "seconds": 143
+    },
+    {
+      "module": "chapter1",
+      "page": "section5.adoc",
+      "seconds": 314
+    },
+    {
+      "module": "chapter1",
+      "page": "section6.adoc",
+      "seconds": 64
     },
     {
       "module": "appendix",
