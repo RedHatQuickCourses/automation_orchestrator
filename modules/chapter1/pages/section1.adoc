@@ -2,6 +2,8 @@
 
 Red Hat Ansible Automation Platform introduces the automation orchestrator available as an add-on SKU.
 
+image::2.1.png[]
+
 == What Are the Dependencies?
 
 The automation orchestrator has two requirements before you can get started. First, it runs exclusively on Red Hat OpenShift Container Platform 4.14 or later, delivered as an operator through the Operator Lifecycle Manager; there is no VM-based or standalone deployment option. Second, it requires Red Hat Ansible Automation Platform 2.7 or later to enable job dispatch to the automation controller and single sign-on through automation gateway, leveraging OpenID Connect (OIDC).

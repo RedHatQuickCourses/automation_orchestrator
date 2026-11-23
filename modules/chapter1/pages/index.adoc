@@ -4,6 +4,8 @@
 Let's start with the most important question: what exactly is the automation orchestrator, and where does it fit in your automation story?
 Red Hat Ansible Automation Platform introduces the automation orchestrator as a visual, workflow-based orchestration platform that gives you a single place to design, execute, and govern multi-step automation workflows that coordinate across tools, teams, and systems by combining task-driven steps, event-driven triggers, AI-assisted decision making, and human approvals in one visual, auditable workflow.
 
+image::1.1.png[]
+
 You already use AAP workflows to chain playbooks, job templates, and approvals across your systems. What Automation Orchestrator **adds is advanced conditional logic and dynamic decision-making** allowing your workflows to evaluate complex runtime data and intelligently route execution on the fly.
 
 
@@ -25,6 +27,8 @@ The automation orchestrator was purpose-built to meet this need. It brings toget
 == What Is Multimode Orchestration?
 
 One of the most important concepts in the automation orchestrator is its role in multimode orchestration. This means not being locked into a single style of automation as it supports three distinct modes that can be combined into a single workflow.
+
+image::1.2.png[]
 
 **Task-Driven**
 
