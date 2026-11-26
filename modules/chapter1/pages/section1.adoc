@@ -12,3 +12,24 @@ The automation orchestrator has two requirements before you can get started. Fir
 If either of these is not in place in your environment, that is your starting point before deploying automation orchestrator.
 
 In the chapters that follow, you will move from understanding these concepts to building and running real workflows of your own.
+
+Let's talk about Installation and Configuration
+
+The Automation Orchestrator is now available as a separately licensed add-on SKU to Red Hat Ansible Automation Platform, providing full Red Hat support entitlement including access to support cases, security advisories, and lifecycle guarantees.
+
+**To get started**:
+
+Once an add-on SKU has been purchased and enabled, there are three methods to install the automation orchestrator. Installation then happens in two phases: first you install the operator, then you create an instance.
+
+You have three ways to install the automation orchestrator:
+
+* OpenShift CLI  using `oc` commands to create an Operator Lifecycle Manager (OLM) subscription. This is the recommended method for production and CLI-based provisioning workflows.
+* OpenShift Web Console  install directly from OperatorHub for a guided, graphical experience.
+ 
+[Note]
+Once the operator is running, you create an AutomationOrchestrator custom resource to deploy the application and configure its components  including your PostgreSQL database connection, ingress settings, and optional integrations such as S3 storage and an LLM provider.
+
+* aapctl CLI (Technology Preview)  a companion CLI that installs the operator and configures the deployment in a single step, supporting GitOps workflows through manifest generation.
+
+[First Login]
+After deployment, retrieve the initial admin password from the OpenShift secret and log in to the web interface. From there, connect your Ansible Automation Platform instance to enable single sign-on and job dispatch, then configure your LLM provider credential when you are ready to use AI task agent steps in your workflows.

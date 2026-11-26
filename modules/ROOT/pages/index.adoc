@@ -19,7 +19,11 @@ By the end of this course, you will be able to:
 - Integrate APIs, event-driven triggers, AI agents, MCPs, and governance controls.
 - Implement an end-to-end workflow for a practical IT use case.
 
-
+== Audience
+ - Automation engineers and system administrators 
+ - Solutions architects and DevOps engineers
+ - Consultants and Technical Account Managers (TAMs) who support Red Hat Ansible Automation Platform customers. 
+ 
 == Prerequisites
 
 Before taking this course, you should have:
@@ -31,6 +35,7 @@ Before taking this course, you should have:
 The PTL team acknowledges the valuable contributions of the following Red Hat associates:
 
 - Andrius Benokraitis (Contributor)
+- Rutuja Deshmukh (Contributor)
 - Aubrey Trotter (Contributor)
 - Alex Dworjan (Contributor)
 - Roger Lopez (Contributor)
