@@ -131,42 +131,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Let&#8217;s First talk about Installation and Configuration</p>
-</div>
-<div class="paragraph">
-<p>The Automation Orchestrator is now available as a separately licensed add-on SKU to Red Hat Ansible Automation Platform, providing full Red Hat support entitlement including access to support cases, security advisories, and lifecycle guarantees.</p>
-</div>
-<div class="paragraph">
-<p><strong>To get started</strong>:</p>
-</div>
-<div class="paragraph">
-<p>Once an add-on SKU has been purchased and enabled, there are three methods to install the automation orchestrator. Installation then happens in two phases: first you install the operator, then you create an instance.</p>
-</div>
-<div class="paragraph">
-<p>You have three ways to install the automation orchestrator:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>OpenShift CLI  using <code>oc</code> commands to create an Operator Lifecycle Manager (OLM) subscription. This is the recommended method for production and CLI-based provisioning workflows.</p>
-</li>
-<li>
-<p>OpenShift Web Console  install directly from OperatorHub for a guided, graphical experience.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Once the operator is running, you create an AutomationOrchestrator custom resource to deploy the application and configure its components  including your PostgreSQL database connection, ingress settings, and optional integrations such as S3 storage and an LLM provider.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>aapctl CLI (Technology Preview)  a companion CLI that installs the operator and configures the deployment in a single step, supporting GitOps workflows through manifest generation.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>After deployment, retrieve the initial admin password from the OpenShift secret and log in to the web interface. From there, connect your Ansible Automation Platform instance to enable single sign-on and job dispatch, then configure your LLM provider credential when you are ready to use AI task agent steps in your workflows.</p>
+<p>Let&#8217;s talk about Components.</p>
 </div>
 </div>
 </div>
